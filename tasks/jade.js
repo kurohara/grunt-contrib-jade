@@ -61,11 +61,11 @@ module.exports = function(grunt) {
           var jade = f.orig.jade = require('jade');
           // 
           // in Grungfile, you can set language add-on like 'jade-php' like as:
-          // options: { languageaddon: [ list of language add-on module names ] ...
+          // options: { modifiers: [ list of language add-on module names ] ...
           //
-          if (typeof options['languageaddon'] !== undefined) {
-            options.languageaddon.forEach(function(f) {
-              require(f)(jade);
+          if (options.modifiers) {
+            options.modifiers.forEach(function(f) {
+                require(f)(jade);
             });
           }
           if (typeof data === 'function') {
